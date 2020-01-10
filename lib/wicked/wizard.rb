@@ -63,17 +63,15 @@ module Wicked
       the_step
     end
 
-    private def check_steps!
-      raise UndefinedStepsError if steps.nil?
-    end
-
     private def set_previous_next(step)
       @previous_step = previous_step(step)
       @next_step     = next_step(step)
     end
 
-    private def setup_wizard
-      check_steps!
+    private
+
+    
+    def setup_wizard
       return if params[:id].nil?
 
       @step = setup_step_from(params[:id])
