@@ -13,6 +13,7 @@ module Wicked::Controller::Concerns::Path
     params[:controller]
   end
 
+  # NOTE: Implement dinamic action.
   def wicked_action
     params[:action]
   end
@@ -20,7 +21,7 @@ module Wicked::Controller::Concerns::Path
   def wizard_path(goto_step = nil, options = {})
     options = options.respond_to?(:to_h) ? options.to_h : options
     options = { :controller => wicked_controller,
-                :action     => 'show',
+                :action     => 'purchase',
                 :id         => goto_step || params[:id],
                 :only_path  => true
                }.merge options
